@@ -91,8 +91,8 @@
 					<configuration>
 						<!--<scanIntervalSeconds>10</scanIntervalSeconds> -->
 						<webAppConfig>
-							<!--<contextPath>/</contextPath>默认为： /${project.artifactId} -->
-							<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
+							<!--<contextPath>/</contextPath>默认为： /${project.artifactId}
+							<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor> -->
 						</webAppConfig>
 						<connectors>
 							<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
