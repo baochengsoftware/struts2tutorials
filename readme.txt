@@ -1,4 +1,4 @@
-Download: http://code.google.com/p/struts2-examples/downloads/list
+Download from http://code.google.com/p/struts2-examples/downloads/list with version *_Mvn_2_2_1.zip
 
 Step by step:
 1)Basic_Struts2_Mvn
