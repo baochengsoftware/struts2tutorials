@@ -1,3 +1,6 @@
+Download: http://code.google.com/p/struts2-examples/downloads/list
+
+Step by step:
 1)Basic_Struts2_Mvn
 How To Create A Struts 2 Web Application
 http://struts.apache.org/2.2.1.1/docs/create-struts-2-web-application-using-maven-to-manage-artifacts-and-to-build-the-application.html
