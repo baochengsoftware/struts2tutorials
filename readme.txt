@@ -1,4 +1,8 @@
 Download from http://code.google.com/p/struts2-examples/downloads/list with version *_Mvn_2_2_1.zip
+How to run the example?
+    just run >mvn jetty:run in console
+    default port is 8080(),can change by >mvn jetty:run -Djetty.port=8081
+    default root path is '/',so visit the web page by http://localhost:8080/ after jetty:run
 
 Step by step:
 1)Basic_Struts2_Mvn
