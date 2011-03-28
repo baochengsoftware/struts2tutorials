@@ -21,3 +21,13 @@ http://struts.apache.org/2.2.1.1/docs/form-validation.html
 
 7)Message_Resource_Struts2_Mvn
 http://struts.apache.org/2.2.1.1/docs/message-resource-files.html
+
+8)Exception Handling
+http://struts.apache.org/2.2.1.1/docs/exception-handling.html
+
+9)Debugging Struts
+http://struts.apache.org/2.2.1.1/docs/debugging-struts.html
+
+10)Struts 2 Form Tags
+TODO
+http://struts.apache.org/2.2.1.1/docs/struts-2-form-tags.html
