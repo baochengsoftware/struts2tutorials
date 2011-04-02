@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0068)http://struts.apache.org/2.2.1.1/docs/form-validation-using-xml.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="./Form Validation Using XML_files/default.css">
+    <style type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </style>
+    <style type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </style>
+    <script type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </script>
+    <title>Form Validation Using XML</title>
+  </head>
+  <body onload="init()">
+    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+      <tbody><tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/home.html" title="Home">Home</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/tutorials.html" title="Tutorials">Tutorials</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/getting-started.html" title="Getting Started">Getting Started</a>&nbsp;&gt;&nbsp;<a href="" title="Form Validation Using XML">Form Validation Using XML</a>
+        </td>
+        <td align="right" valign="middle" nowrap="">
+          <form name="search" action="http://www.google.com/search" method="get">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="hidden" name="oe" value="UTF-8">
+            <input type="hidden" name="domains" value="struts.apache.org">
+            <input type="hidden" name="sitesearch" value="struts.apache.org">
+            <input type="text" name="q" maxlength="255" value="">        
+            <input type="submit" name="btnG" value="Google Search">
+          </form>
+        </td>
+      </tr> 
+    </tbody></table>
+
+    <div id="PageContent">
+      <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px" class="pagetitle">Form Validation Using XML</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=20644608">
+            <img src="./Form Validation Using XML_files/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=20644608">Edit Page</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <img src="./Form Validation Using XML_files/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=20644608">
+            <img src="./Form Validation Using XML_files/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+          <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=20644608">Add Page</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=20644608">
+            <img src="./Form Validation Using XML_files/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+          <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=20644608">Add News</a>
+        </div>
+      </div>
+      <div class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+        #editReport()
+      </div>
+
+      <div class="pagecontent">
+        <div class="wiki-content">
+          <div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Form Validation Using XML_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The example code for this tutorial, Form_XML_Validation_Struts2_Ant or Form_XML_Validation_Struts2_Mvn, is available on Google Code - <a href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</a>. After downloading and unzipping the file, you'll have a folder named Form_XML_Validation_Struts2_Ant (or Form_XML_Validation_Struts2_Mvn). In that folder will be a README.txt file with instructions on now to build and run the example application.</td></tr></tbody></table></div>
+
+<h3><a name="FormValidationUsingXML-Introduction"></a>Introduction</h3>
+<p>In this tutorial we'll cover how to validate a user's input in form fields using Struts 2's XML validation methodology.  In the <a href="http://struts.apache.org/2.2.1.1/docs/form-validation.html" title="Form Validation">Form Validation</a> tutorial we discussed validating a user's input using the validate method in the Action class. Using a separate XML validation file gives you the ability to use validators built-in to the Struts 2 framework.</p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Form Validation Using XML_files/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The <a href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</a> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</td></tr></tbody></table></div>
+
+<h3><a name="FormValidationUsingXML-ExampleApplication"></a>Example Application</h3>
+<p>The example application that supports this tutorial (Form_XML_Validation_Struts2 available at <a href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</a>.) shows how to use Struts 2's XML validation methodology.  The information that can be edited is encapsulated in an object of class Person. </p>
+
+<p>To enable the user to edit his information that is stored in the Person object, we have this form:</p>
+
+<p><span class="image-wrap" style=""><img src="./Form Validation Using XML_files/Screen shot 2010-05-05 at 10.05.14 AM.png" style="border: 1px solid black"></span></p>
+
+<p>When the user submits the form, we want to validate his entries into the form fields.  </p>
+
+<h3><a name="FormValidationUsingXML-ValidationUsingXML"></a>Validation Using XML</h3>
+<p>To validate a user's form field entries you can use a separate XML file that contains your validation rules.  The XML file that contains the validation rules must be named as ActionClassName-validation.xml.  In the example application, the XML validation file is named EditAction-validation.xml (see src/main/resources/org/apache/struts/edit/action for the Maven example or src/org/apache/struts/edit/action for the Ant example).</p>
+
+<p>Struts 2 provides several different validators that you can use in the XML validation file.  See <a href="http://struts.apache.org/2.2.1.1/docs/validation.html" title="Validation">Validation</a> for a list of validators you can employ.</p>
+
+<p>In the above form, we want to ensure the user enters a first name.  To have the Struts 2 framework enforce that rule we can used the Struts 2 <a href="http://struts.apache.org/2.2.1.1/docs/requiredstring-validator.html" title="requiredstring validator">requiredstring validator</a>.  This validator checks that the user has entered a string value in the form field.</p>
+
+<h3><a name="FormValidationUsingXML-XMLValidatorFormat"></a>XML Validator Format</h3>
+<p>In the XML validation file (for this example that is EditAction-validation.xml), is this XML:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>XML Validator Required String</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+&lt;!DOCTYPE validators PUBLIC
+<span class="code-quote">"-//OpenSymphony Group//XWork Validator 1.0.2//EN"</span>
+<span class="code-quote">"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd"</span>&gt;
+<span class="code-tag">&lt;validators&gt;</span>
+ <span class="code-tag">&lt;validator type=<span class="code-quote">"requiredstring"</span>&gt;</span>
+ 	<span class="code-tag">&lt;param name=<span class="code-quote">"fieldname"</span>&gt;</span>personBean.firstName<span class="code-tag">&lt;/param&gt;</span>
+ 	<span class="code-tag">&lt;message&gt;</span>First name is required.<span class="code-tag">&lt;/message&gt;</span>
+ <span class="code-tag">&lt;/validator&gt;</span>
+<span class="code-tag">&lt;/validators&gt;</span>
+
+</pre>
+</div></div>
+
+<p>Within the validators node you can have 1 or more validator nodes.  The type attribute specifies which validator you want the Struts 2 framework to use (see <a href="http://struts.apache.org/2.2.1.1/docs/validation.html" title="Validation">Validation</a>).  The param name="fieldname" node is used to tell the framework which form field entry to apply the rule to.  See edit.jsp for the form fields and their name value (review <a href="http://struts.apache.org/2.2.1.1/docs/struts-2-form-tags.html" title="Struts 2 Form Tags">Struts 2 Form Tags</a> if you're not familiar with how to use Struts 2 form tags).  The message node is used to tell the framework what message to display if the validation fails.</p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Form Validation Using XML_files/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>There are alternate ways to write the XML that goes in the validation XML file.  See <a href="http://struts.apache.org/2.2.1.1/docs/validation.html" title="Validation">Validation</a> in the Struts 2 documentation for a full discussion.</td></tr></tbody></table></div>
+
+<p>For example if the user doesn't enter a value in the first name form field and clicks on the Save Changes button, he will see the following.</p>
+
+<p><span class="image-wrap" style=""><img src="./Form Validation Using XML_files/Screen shot 2010-05-05 at 10.25.38 AM.png" style="border: 1px solid black"></span></p>
+
+<h3><a name="FormValidationUsingXML-ValidatingAnEmailAddress"></a>Validating An Email Address</h3>
+<p>You can use the Struts 2 <a href="http://struts.apache.org/2.2.1.1/docs/email-validator.html" title="email validator">email validator</a> to validate the user's input in the email field.  Here is the validator node that is in the EditAction-validation.xml file.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Email Validator</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+ <span class="code-tag">&lt;validator type=<span class="code-quote">"requiredstring"</span>&gt;</span>
+ 	<span class="code-tag">&lt;param name=<span class="code-quote">"fieldname"</span>&gt;</span>personBean.email<span class="code-tag">&lt;/param&gt;</span>
+ 	<span class="code-tag">&lt;message&gt;</span>Email address is required.<span class="code-tag">&lt;/message&gt;</span>
+ <span class="code-tag">&lt;/validator&gt;</span>
+ <span class="code-tag">&lt;validator type=<span class="code-quote">"email"</span>&gt;</span>
+ 	<span class="code-tag">&lt;param name=<span class="code-quote">"fieldname"</span>&gt;</span>personBean.email<span class="code-tag">&lt;/param&gt;</span>
+ 	<span class="code-tag">&lt;message&gt;</span>Email address not valid.<span class="code-tag">&lt;/message&gt;</span>
+ <span class="code-tag">&lt;/validator&gt;</span>
+
+</pre>
+</div></div>
+
+<p>Note that in the example, we are requiring the user to enter an email address and then validating the email address the user entered.</p>
+
+<h3><a name="FormValidationUsingXML-ValidatingAUser%27sInputUsingARegularExpression"></a>Validating A User's Input Using A Regular Expression</h3>
+<p>The Struts 2 framework provides a powerful way to validate a user's form field input by using the <a href="http://struts.apache.org/2.2.1.1/docs/regex-validator.html" title="regex validator">regex validator</a>.  In the example application, we want to ensure the user enters the phone number in the format 999-999-9999.  We can use a regular expression and the <a href="http://struts.apache.org/2.2.1.1/docs/regex-validator.html" title="regex validator">regex validator</a> to enforce this rule.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>REGEX Validator</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+<span class="code-tag">&lt;validator type=<span class="code-quote">"requiredstring"</span>&gt;</span>
+ 	<span class="code-tag">&lt;param name=<span class="code-quote">"fieldname"</span>&gt;</span>personBean.phoneNumber<span class="code-tag">&lt;/param&gt;</span>
+ 	<span class="code-tag">&lt;message&gt;</span>Phone number is required.<span class="code-tag">&lt;/message&gt;</span>
+ <span class="code-tag">&lt;/validator&gt;</span>
+<span class="code-tag">&lt;validator type=<span class="code-quote">"regex"</span>&gt;</span>
+	<span class="code-tag">&lt;param name=<span class="code-quote">"fieldname"</span>&gt;</span>personBean.phoneNumber<span class="code-tag">&lt;/param&gt;</span>
+	<span class="code-tag">&lt;param name=<span class="code-quote">"expression"</span>&gt;</span><span class="code-tag">&lt;![CDATA[\d{3}-\d{3}-\d{4}]]&gt;</span><span class="code-tag">&lt;/param&gt;</span>
+	<span class="code-tag">&lt;message&gt;</span>Phone number must be entered as 999-999-9999.<span class="code-tag">&lt;/message&gt;</span>
+<span class="code-tag">&lt;/validator&gt;</span>
+
+</pre>
+</div></div>
+
+<p>The param name="expression" node is used to specify the regular expression that will be applied to the user's input.  Note how the regular expression is contained within a CDATA section.</p>
+
+<h3><a name="FormValidationUsingXML-ValidatingAUser%27sInputUsingAnOGNLExpression"></a>Validating A User's Input Using An OGNL Expression</h3>
+<p>In the example application, we want to ensure the user checks at least one of the car model check boxes.  To enforce this rule we can use the <a href="http://struts.apache.org/2.2.1.1/docs/fieldexpression-validator.html" title="fieldexpression validator">fieldexpression validator</a>.  Here's the XML for that validator node.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>FieldExpression Validator</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+<span class="code-tag">&lt;validator type=<span class="code-quote">"fieldexpression"</span>&gt;</span>
+	<span class="code-tag">&lt;param name=<span class="code-quote">"fieldname"</span>&gt;</span>personBean.carModels<span class="code-tag">&lt;/param&gt;</span>
+	<span class="code-tag">&lt;param name=<span class="code-quote">"expression"</span>&gt;</span><span class="code-tag">&lt;![CDATA[personBean.carModels.length &gt;</span> 0]]&gt;<span class="code-tag">&lt;/param&gt;</span>
+	<span class="code-tag">&lt;message&gt;</span>You must select at least one car model.<span class="code-tag">&lt;/message&gt;</span>
+<span class="code-tag">&lt;/validator&gt;</span>
+
+</pre>
+</div></div>
+
+<p>The param name="expression" node contains an OGNL expression that evaluates to true or false.  We haven't previously discussed OGNL, which stands for Object-Graph Navigation Language (see <a href="http://www.opensymphony.com/ognl/" class="external-link" rel="nofollow">http://www.opensymphony.com/ognl/</a> and <a href="http://struts.apache.org/2.2.1.1/docs/ognl.html" title="OGNL">OGNL</a>).  OGNL expressions can be evaluated by the Struts 2 framework as Java statements.  </p>
+
+<p>In the above XML the value of the param name="expression" node, personBean.carModels.length &gt; 0, will be evaluated by the framework as a Java statement.  The part personBean.carModels tells the framework to call the getCarModels method of class Person.  That method returns an Array.  Since class Array has a length attribute, the framework will get the value of the length attribute of the Array returned by the getCarModels method.</p>
+
+<p>If the user did not check any of the check boxes, the Array returned by the getCarModels method will have a length value of 0.  Since the complete OGNL expression will only evaluate to true if the length value is greater than 0, the validation fails.  The user will see this.</p>
+
+<p><span class="image-wrap" style=""><img src="./Form Validation Using XML_files/Screen shot 2010-05-05 at 10.45.18 AM.png" style="border: 1px solid black"></span></p>
+
+
+<p>The fieldexpression validator is useful when doing conditional validation of a user's input.  If the OGNL expression doesn't evaluate to true then the user's input won't be allowed.</p>
+
+<h3><a name="FormValidationUsingXML-Summary"></a>Summary</h3>
+<p>The Struts 2 framework provides easy-to-use validation methodologies.  You can add a validate method to the Action class or have a separate XML file with validation rules or you can use a combination of both methodologies.</p>
+
+<h3><a name="FormValidationUsingXML-UpNext"></a>Up Next</h3>
+
+<p>In our next tutorial we'll cover how to enable one action node in struts.xml to respond to several different action URLs.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody>
+<tr>
+<th class="confluenceTh"> Next </th>
+<td class="confluenceTd"> Onward to <a href="http://struts.apache.org/2.2.1.1/docs/wildcard-method-selection.html" title="Wildcard Method Selection">Wildcard Method Selection</a> </td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+        </div>
+
+        
+      </div>
+    </div>
+    <div class="footer">
+      Generated by
+      <a href="http://www.atlassian.com/confluence/">Atlassian Confluence</a> (Version: 3.2 Build: 1810 Mar 16, 2010)
+      <a href="http://could.it/autoexport/">Auto Export Plugin</a> (Version: 1.0.0-dkulp)
+    </div>
+  
+</body></html>

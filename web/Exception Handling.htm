@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0061)http://struts.apache.org/2.2.1.1/docs/exception-handling.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="./Exception Handling_files/default.css">
+    <style type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </style>
+    <style type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </style>
+    <script type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </script>
+    <title>Exception Handling</title>
+  </head>
+  <body onload="init()">
+    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+      <tbody><tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/home.html" title="Home">Home</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/tutorials.html" title="Tutorials">Tutorials</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/getting-started.html" title="Getting Started">Getting Started</a>&nbsp;&gt;&nbsp;<a href="" title="Exception Handling">Exception Handling</a>
+        </td>
+        <td align="right" valign="middle" nowrap="">
+          <form name="search" action="http://www.google.com/search" method="get">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="hidden" name="oe" value="UTF-8">
+            <input type="hidden" name="domains" value="struts.apache.org">
+            <input type="hidden" name="sitesearch" value="struts.apache.org">
+            <input type="text" name="q" maxlength="255" value="">        
+            <input type="submit" name="btnG" value="Google Search">
+          </form>
+        </td>
+      </tr> 
+    </tbody></table>
+
+    <div id="PageContent">
+      <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px" class="pagetitle">Exception Handling</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14813967">
+            <img src="./Exception Handling_files/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=14813967">Edit Page</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <img src="./Exception Handling_files/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14813967">
+            <img src="./Exception Handling_files/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+          <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=14813967">Add Page</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14813967">
+            <img src="./Exception Handling_files/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+          <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=14813967">Add News</a>
+        </div>
+      </div>
+      <div class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+        #editReport()
+      </div>
+
+      <div class="pagecontent">
+        <div class="wiki-content">
+          <div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Exception Handling_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The example code for this tutorial, Exception_Handling_Struts2_Ant or Exception_Handling_Struts2_Mvn, is available on Google Code - <a href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</a>.  After downloading and unzipping the file, you'll have a folder named Exception_Handling_Struts2_Ant (or Exception_Handling_Struts2_Mvn).  In that folder will be a README.txt file with instructions on now to build and run the example application.</td></tr></tbody></table></div>
+
+<h3><a name="ExceptionHandling-Introduction"></a>Introduction</h3>
+<p>In this tutorial we'll explore using how to enable the Struts 2 framework to handle any uncaught exceptions generated by a web application.  Struts 2 provides robust exception handling, including the ability to automatically log any uncaught exceptions and redirect the user to a error web page.  </p>
+
+<p>The code discussed in this tutorial can be download from Google Code - <a href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</a>.</p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Exception Handling_files/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The <a href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</a> is an excellent place to get help.  If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list.  If you don't find an answer to your problem, post a question on the mailing list.</td></tr></tbody></table></div>
+
+<h3><a name="ExceptionHandling-GlobalExceptionHandling"></a>Global Exception Handling</h3>
+<p>Using the Struts 2 framework you can specify in the struts.xml how the framework should handle uncaught exceptions.  The handling logic can apply to all actions (global exception handling) or to a specific action.  Let's first discuss how to enable global exception handling.</p>
+
+<p>To enable global exception handling you need to add two nodes to struts.xml:  global-exception-mapping and global-results.  For example examine struts.xml from the Exception Handling code download (<a href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</a>).</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-xml">  
+   <span class="code-tag">&lt;global-exception-mappings&gt;</span>
+	<span class="code-tag">&lt;exception-mapping exception=<span class="code-quote">"org.apache.struts.register.exceptions.SecurityBreachException"</span> result=<span class="code-quote">"securityerror"</span> /&gt;</span>
+	 <span class="code-tag">&lt;exception-mapping exception=<span class="code-quote">"java.lang.Exception"</span> result=<span class="code-quote">"error"</span> /&gt;</span>
+   <span class="code-tag">&lt;/global-exception-mappings&gt;</span>
+ 
+  <span class="code-tag">&lt;global-results&gt;</span>
+        <span class="code-tag">&lt;result name=<span class="code-quote">"securityerror"</span>&gt;</span>/securityerror.jsp<span class="code-tag">&lt;/result&gt;</span>
+  	<span class="code-tag">&lt;result name=<span class="code-quote">"error"</span>&gt;</span>/error.jsp<span class="code-tag">&lt;/result&gt;</span>
+   <span class="code-tag">&lt;/global-results&gt;</span>
+ 
+</pre>
+</div></div>
+
+<p>The global exception mapping node tells the Struts 2 framework what to do if an uncaught exception of the type specified (or a child of that type) is thrown by the the application.  For example if a SecurityBreachException is thrown but not caught, the Struts 2 Action class will return a result of "securityerror".  All other uncaught exceptions will cause the Struts 2 Action class to return a result of "error".</p>
+
+<p>The global results mapping node relates the result value to a specific view page.  For example the result "securityerror" will cause the framework to redirect the user's browser to the securityerror.jsp view page.</p>
+
+<h3><a name="ExceptionHandling-ExceptionHandlingPerAction"></a>Exception Handling Per Action</h3>
+<p>If you need to handle an exception in a specific way for a certain action you can use the exception-mapping node within the action node.  </p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-xml">
+   <span class="code-tag">&lt;action name=<span class="code-quote">"actionspecificexception"</span> class=<span class="code-quote">"org.apache.struts.register.action.Register"</span> method=<span class="code-quote">"throwSecurityException"</span>&gt;</span>
+     &lt;exception-mapping exception=<span class="code-quote">"org.apache.struts.register.exceptions.SecurityBreachException"</span> 
+          result=<span class="code-quote">"login"</span> /&gt;
+      <span class="code-tag">&lt;result&gt;</span>/register.jsp<span class="code-tag">&lt;/result&gt;</span>
+      <span class="code-tag">&lt;result name=<span class="code-quote">"login"</span>&gt;</span>/login.jsp<span class="code-tag">&lt;/result&gt;</span>
+   <span class="code-tag">&lt;/action&gt;</span>
+
+</pre>
+</div></div>
+
+<p>The above action node from the example application's struts.xml file specifies that if method throwSecurityException throws an uncaught exception of type SecurityBreachException the Struts 2 framework should return a result of login.  The login result will cause the user's browser to be redirected to login.jsp.</p>
+
+<p>You can see that an action-specific exception mapping will take precedence if the same exception is also mapped globally.</p>
+
+<h3><a name="ExceptionHandling-LoggingExceptions"></a>Logging Exceptions</h3>
+
+<p>You can configure the Struts 2 framework to log any uncaught exceptions.  To enable logging of the exceptions being handled by the Struts 2 framework you must specify some parameter values in struts.xml. If you examine the <a href="http://struts.apache.org/2.1.8.1/struts2-core/apidocs/com/opensymphony/xwork2/interceptor/ExceptionMappingInterceptor.html" class="external-link" rel="nofollow">ExceptionMappingInterceptor class API</a> there are three parameter values you can set to enable logging (logEnabled), the log level to use (logLevel), and the log category (logCategory) to specify in the log message.</p>
+
+<p>To set these parameter values for all actions that use a specific stack of interceptors in a package include the following in struts.xml just after the opening package node.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-xml">
+<span class="code-tag">&lt;interceptors&gt;</span>
+  <span class="code-tag">&lt;interceptor-stack name=<span class="code-quote">"appDefaultStack"</span>&gt;</span>
+    <span class="code-tag">&lt;interceptor-ref name=<span class="code-quote">"defaultStack"</span>&gt;</span>
+     <span class="code-tag">&lt;param name=<span class="code-quote">"exception.logEnabled"</span>&gt;</span>true<span class="code-tag">&lt;/param&gt;</span>
+     <span class="code-tag">&lt;param name=<span class="code-quote">"exception.logLevel"</span>&gt;</span>ERROR<span class="code-tag">&lt;/param&gt;</span>
+    <span class="code-tag">&lt;/interceptor-ref&gt;</span>
+ <span class="code-tag">&lt;/interceptor-stack&gt;</span>
+<span class="code-tag">&lt;/interceptors&gt;</span>
+
+<span class="code-tag">&lt;default-interceptor-ref name=<span class="code-quote">"appDefaultStack"</span> /&gt;</span>
+
+</pre>
+</div></div>
+
+<p>The above interceptors node configures a new stack of Struts 2 interceptors named appDefaultStack. This stack of interceptors is based upon the defaultStack of interceptors (which are the Struts 2 interceptors the execute by default whenever an Action class method is called by the Struts 2 framework). </p>
+
+<p>The ExceptionMappingInterceptor is one of the Struts 2 interceptors that is part of the default stack. In the definition of the struts defaultStack, the ExceptionMappingInterceptor is given the name of exception. By specifying a param node with the name of exception.logEnabled and a value of true, I'm setting the logEnabled parameter of the ExceptionMappingInterceptor class to true.</p>
+
+<p>Now when the application throws an uncaught exception, the Struts 2 framework will handle it and will also write an entry to the log that includes the stack trace. In the example above, I've set the level to log these exceptions to be ERROR.</p>
+
+<p>In the example applications, the logging is just to the Servlet container's console (see the log4j.xml file for the log settings).</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>struts.xml Action Specific Exception Mapping</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+   <span class="code-tag">&lt;action name=<span class="code-quote">"actionspecificexception"</span> class=<span class="code-quote">"org.apache.struts.register.action.Register"</span> method=<span class="code-quote">"throwSecurityException"</span>&gt;</span>
+     &lt;exception-mapping exception=<span class="code-quote">"org.apache.struts.register.exceptions.SecurityBreachException"</span> 
+          result=<span class="code-quote">"login"</span> /&gt;
+      <span class="code-tag">&lt;result&gt;</span>/register.jsp<span class="code-tag">&lt;/result&gt;</span>
+      <span class="code-tag">&lt;result name=<span class="code-quote">"login"</span>&gt;</span>/login.jsp<span class="code-tag">&lt;/result&gt;</span>
+   <span class="code-tag">&lt;/action&gt;</span>
+
+</pre>
+</div></div>
+
+<p>The above action node from the example application's struts.xml file specifies that if method throwSecurityException throws an uncaught exception of type SecurityBreachException the Struts 2 framework should return a result of login.  The login result will cause the user's browser to be redirected to login.jsp.</p>
+
+<p>You can see that an action-specific exception mapping will take precedence if the same exception is also mapped globally.</p>
+
+
+
+<h3><a name="ExceptionHandling-Summary"></a>Summary</h3>
+<p>Struts 2 provides a easy to use configuration for handling uncaught exceptions and redirecting users to appropriate view pages.  You can configure exception handling to be global for all actions or to just for a specific action.  You can also enable the Struts 2 framework to log the uncaught exceptions.</p>
+
+<h3><a name="ExceptionHandling-UpNext"></a>Up Next</h3>
+
+<p>In our next tutorial we'll cover how to configure Struts 2 to make debugging a Struts 2 application simpler.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody>
+<tr>
+<th class="confluenceTh"> Next </th>
+<td class="confluenceTd"> Onward to <a href="http://struts.apache.org/2.2.1.1/docs/debugging-struts.html" title="Debugging Struts">Debugging Struts</a> </td>
+</tr>
+<tr>
+<th class="confluenceTh"> Prev </th>
+<td class="confluenceTd"> Return to <a href="" title="Exception Handling">Exception Handling</a> </td>
+</tr>
+</tbody></table>
+</div>
+
+        </div>
+
+                  <div class="tabletitle">
+            Children
+            <span class="smalltext" id="show" style="display: inline; ">
+              <a href="javascript:showChildren()">Show Children</a></span>
+            <span class="smalltext" id="hide" style="display: none; ">
+              <a href="javascript:hideChildren()">Hide Children</a></span>
+          </div>
+          <div class="greybox" id="children" style="display: none; ">
+                                      <a href="http://struts.apache.org/2.2.1.1/docs/debugging-struts.html" title="Debugging Struts">Debugging Struts</a>
+              <span class="smalltext">(Apache Struts 2 Documentation)</span>
+              <br>
+                      </div>
+        
+      </div>
+    </div>
+    <div class="footer">
+      Generated by
+      <a href="http://www.atlassian.com/confluence/">Atlassian Confluence</a> (Version: 3.2 Build: 1810 Mar 16, 2010)
+      <a href="http://could.it/autoexport/">Auto Export Plugin</a> (Version: 1.0.0-dkulp)
+    </div>
+  
+</body></html>

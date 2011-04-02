@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0062)http://struts.apache.org/2.2.1.1/docs/spring-and-struts-2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="./Spring and Struts 2_files/default.css">
+    <style type="text/css">
+      .dp-highlighter {
+        width:95% !important;
+      }
+    </style>
+    <style type="text/css">
+      .footer {
+        background-image:      url('https://cwiki.apache.org/confluence/images/border/border_bottom.gif');
+        background-repeat:     repeat-x;
+        background-position:   left top;
+        padding-top:           4px;
+        color:                 #666;
+      }
+    </style>
+    <script type="text/javascript" language="javascript">
+      var hide = null;
+      var show = null;
+      var children = null;
+
+      function init() {
+        /* Search form initialization */
+        var form = document.forms['search'];
+        if (form != null) {
+          form.elements['domains'].value = location.hostname;
+          form.elements['sitesearch'].value = location.hostname;
+        }
+
+        /* Children initialization */
+        hide = document.getElementById('hide');
+        show = document.getElementById('show');
+        children = document.all != null ?
+                   document.all['children'] :
+                   document.getElementById('children');
+        if (children != null) {
+          children.style.display = 'none';
+          show.style.display = 'inline';
+          hide.style.display = 'none';
+        }
+      }
+
+      function showChildren() {
+        children.style.display = 'block';
+        show.style.display = 'none';
+        hide.style.display = 'inline';
+      }
+
+      function hideChildren() {
+        children.style.display = 'none';
+        show.style.display = 'inline';
+        hide.style.display = 'none';
+      }
+    </script>
+    <title>Spring and Struts 2</title>
+  </head>
+  <body onload="init()">
+    <table border="0" cellpadding="2" cellspacing="0" width="100%">
+      <tbody><tr class="topBar">
+        <td align="left" valign="middle" class="topBarDiv" nowrap="">
+          &nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/home.html" title="Apache Struts 2 Documentation">Apache Struts 2 Documentation</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/home.html" title="Home">Home</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/tutorials.html" title="Tutorials">Tutorials</a>&nbsp;&gt;&nbsp;<a href="http://struts.apache.org/2.2.1.1/docs/getting-started.html" title="Getting Started">Getting Started</a>&nbsp;&gt;&nbsp;<a href="" title="Spring and Struts 2">Spring and Struts 2</a>
+        </td>
+        <td align="right" valign="middle" nowrap="">
+          <form name="search" action="http://www.google.com/search" method="get">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="hidden" name="oe" value="UTF-8">
+            <input type="hidden" name="domains" value="struts.apache.org">
+            <input type="hidden" name="sitesearch" value="struts.apache.org">
+            <input type="text" name="q" maxlength="255" value="">        
+            <input type="submit" name="btnG" value="Google Search">
+          </form>
+        </td>
+      </tr> 
+    </tbody></table>
+
+    <div id="PageContent">
+      <div class="pageheader" style="padding: 6px 0px 0px 0px;">
+        <!-- We'll enable this once we figure out how to access (and save) the logo resource -->
+        <!--img src="/wiki/images/confluence_logo.gif" style="float: left; margin: 4px 4px 4px 10px;" border="0"-->
+        <div style="margin: 0px 10px 0px 10px" class="smalltext">Apache Struts 2 Documentation</div>
+        <div style="margin: 0px 10px 8px 10px" class="pagetitle">Spring and Struts 2</div>
+
+        <div class="greynavbar" align="right" style="padding: 2px 10px; margin: 0px;">
+          <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23339629">
+            <img src="./Spring and Struts 2_files/notep_16.gif" height="16" width="16" border="0" align="absmiddle" title="Edit Page"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/editpage.action?pageId=23339629">Edit Page</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">
+            <img src="./Spring and Struts 2_files/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Browse Space"></a>
+            <a href="https://cwiki.apache.org/confluence/pages/listpages.action?key=WW">Browse Space</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23339629">
+            <img src="./Spring and Struts 2_files/add_page_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add Page"></a>
+          <a href="https://cwiki.apache.org/confluence/pages/createpage.action?spaceKey=WW&fromPageId=23339629">Add Page</a>
+          &nbsp;
+          <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23339629">
+            <img src="./Spring and Struts 2_files/add_blogentry_16.gif" height="16" width="16" border="0" align="absmiddle" title="Add News"></a>
+          <a href="https://cwiki.apache.org/confluence/pages/createblogpost.action?spaceKey=WW&fromPageId=23339629">Add News</a>
+        </div>
+      </div>
+      <div class="pagesubheading" style="margin: 0px 10px 0px 10px;">
+        #editReport()
+      </div>
+
+      <div class="pagecontent">
+        <div class="wiki-content">
+          <div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Spring and Struts 2_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The example code for this tutorial, Spring_Struts2_Ant or Spring_Struts2_Mvn, is available on Google Code - <a href="http://code.google.com/p/struts2-examples/downloads/list" class="external-link" rel="nofollow">http://code.google.com/p/struts2-examples/downloads/list</a>. After downloading and unzipping the file, you'll have a folder named Spring_Struts2_Ant (or Spring_Struts2_Mvn). In that folder will be a README.txt file with instructions on now to build and run the example application.</td></tr></tbody></table></div>
+
+<h3><a name="SpringandStruts2-Introduction"></a>Introduction</h3>
+
+<p>In the execute method of many Struts 2 ActionSupport classes are statements that create objects and then have those objects execute methods that perform needed tasks. Whenever one class creates an object of another class that introduces a dependency between the two classes. The Spring framework makes it easier for the application developer to manage these dependencies and helps makes the application more flexible and maintainable. This tutorial will show you how to use Struts 2 and Spring together to manage the dependencies between your ActionSupport classes and other classes in your application.</p>
+
+<div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Spring and Struts 2_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>This tutorial assumes you understand how to use the Spring framework to manage dependencies between classes.  You can learn more about Spring by reading the documentation at <a href="http://www.springsource.org/documentation" class="external-link" rel="nofollow">http://www.springsource.org/documentation</a></td></tr></tbody></table></div>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Spring and Struts 2_files/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The <a href="http://struts.apache.org/mail.html" class="external-link" rel="nofollow">Struts 2 user mailing list</a> is an excellent place to get help. If you are having a problem getting the tutorial example applications to work search the Struts 2 mailing list. If you don't find an answer to your problem, post a question on the mailing list.</td></tr></tbody></table></div>
+
+<p>If you examine the example application for the <a href="http://struts.apache.org/2.2.1.1/docs/struts-2-themes.html" title="Struts 2 Themes">Struts 2 Themes</a> tutorial you'll see this code in the EditAction ActionSupport class</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>EditAction Class Hard-Coded Dependency</b></div><div class="codeContent panelContent">
+<pre class="code-java">
+<span class="code-keyword">private</span> EditService editService = <span class="code-keyword">new</span> EditServiceInMemory();
+
+</pre>
+</div></div>
+
+<p>The above statement hard-codes a dependency between the EditAction class and the EditServiceInMemory class.  This is poor design for two reasons.  </p>
+
+<ol>
+	<li>If I need to replace the EditServiceInMemory with another class that implements the EditService interface I'll have to hunt down and replace all statements where I hard-coded the dependency.</li>
+	<li>I cannot test EditAction without using the EditServiceInMemory class.  I cannot isolate EditAction by using a stub implementation of EditService when writing my test case because the use of EditServiceInMemory is hard-coded.</li>
+</ol>
+
+
+<p>Spring provides a mechanism to manage dependencies by injecting them at run time. Struts 2 ActionSupport classes—like any other Java class—can be injected with a dependent object by the Spring framework.  So instead of having the above code, I would have this statement in EditAction.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>EditAction Class No Hard-Coded Dependency</b></div><div class="codeContent panelContent">
+<pre class="code-java">
+    <span class="code-keyword">private</span> EditService editService ;
+
+</pre>
+</div></div>
+
+<p>At run time the Spring framework will provide an object of a class that implements the EditService interface.</p>
+
+<h3><a name="SpringandStruts2-Struts2SpringPlugin"></a>Struts 2 Spring Plugin</h3>
+
+<p>Struts 2 provides a plugin that enables Spring to inject into the ActionSupport classes any dependent objects you've specified in the Spring configuration file.  Consult <a href="http://struts.apache.org/2.2.1.1/docs/spring-plugin.html" title="Spring Plugin">Spring Plugin documentation</a> for more information about how the plugin works.  </p>
+
+<p>For a Maven application you'll need to add a dependency to the struts2-spring-plugin jar (see the Maven example application for this tutorial).  The plugin's pom.xml includes transitive dependencies to the Spring jar files.  For an Ant built application you'll need to add the struts2-spring-plugin jar and the Spring jars to your application's class path (see the Ant example application for this tutorial).</p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Spring and Struts 2_files/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The current version of the Struts 2 Spring plugin has transitive dependencies to the Spring 2.5.6 version.  If you want to use the latest version of Spring, then you should exclude the transitive dependencies in your pom.xml for the Struts 2 Spring plugin and then declare dependency nodes to the current version of the Spring jar files.  If you are using Ant and explicitly including the jar files in your application, then just include the latest version of the Spring jar files.</td></tr></tbody></table></div>
+
+<p>In your ActionSupport class you must have a set method for the dependent object that follows standard Java bean naming conventions.  If you examine the EditAction class for this tutorial's application you'll see this set method.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-java">
+<span class="code-keyword">public</span> void setEditService(EditService editService) {
+		
+   <span class="code-keyword">this</span>.editService = editService;
+		
+}
+
+</pre>
+</div></div>
+
+<p>Spring will use that set method to provide an object of type EditService to the EditAction class at run time.</p>
+
+<p>To make our application "Spring aware" we need to add this line to web.xml.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Spring Listener In web.xml</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+<span class="code-tag">&lt;listener&gt;</span>
+	<span class="code-tag">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="code-tag">&lt;/listener-class&gt;</span>
+<span class="code-tag">&lt;/listener&gt;</span>
+
+</pre>
+</div></div>
+
+<p>The above code will activate the Spring framework when the application is started up by the Servlet container.  By default Spring will look for a configuration file name applicationContext.xml in WEB-INF (consult the Spring documentation for how you can change where Spring looks and what the configuration file name is).</p>
+
+<h3><a name="SpringandStruts2-SpringConfigurationFile"></a>Spring Configuration File</h3>
+
+<p>In the Spring configuration file we create a bean node for those objects we want Spring to create an instance of and inject into our ActionSupport class.  In the example application is this applicationContext.xml.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Spring Configuration File</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+<span class="code-tag">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;</span>
+&lt;beans xmlns=<span class="code-quote">"http://www.springframework.org/schema/beans"</span>
+       <span class="code-keyword">xmlns:xsi</span>=<span class="code-quote">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd"&gt;
+
+<span class="code-tag">&lt;bean id=<span class="code-quote">"editService"</span> class=<span class="code-quote">"org.apache.struts.edit.service.EditServiceInMemory"</span> /&gt;</span>
+
+<span class="code-tag">&lt;/beans&gt;</span>
+
+</pre>
+</div></div>
+
+<p>Note the id value above.  By default the Spring plugin works with Spring to autowire the dependencies of the ActionClass by "name."  Spring will create an object of class EditServiceMemory and provide that object to any ActionSupport class that has a setEditService method with an argument of type EditService.  Consult the  <a href="http://struts.apache.org/2.2.1.1/docs/spring-plugin.html" title="Spring Plugin">Spring Plugin</a> documentation for how to change the default autowire method.</p>
+
+<div class="panelMacro"><table class="tipMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Spring and Struts 2_files/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The editService bean created by Spring will have a scope of singleton since that is the default scope.  Consult section 3.5 of the <a href="http://www.springsource.org/documentation" class="external-link" rel="nofollow">Spring documentation</a> for how to configure the bean definition to use a different scope (e.g. request or session).</td></tr></tbody></table></div>
+
+<h3><a name="SpringandStruts2-AlternativeHaveSpringManageCreationOfActionSupportClass"></a>Alternative - Have Spring Manage Creation Of ActionSupport Class</h3>
+
+<p>Using the above methodology, the Struts 2 framework will still manage the creation of the ActionSupport class.  If you prefer you can configure the application so that Spring will create the ActionSupport class also.  To support this technique you need to add a bean node to the Spring configuration file for the ActionSupport class.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Spring Configuration For ActionSupport Class Managed By Spring</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+<span class="code-tag">&lt;?xml version=<span class="code-quote">"1.0"</span> encoding=<span class="code-quote">"UTF-8"</span>?&gt;</span>
+&lt;beans xmlns=<span class="code-quote">"http://www.springframework.org/schema/beans"</span>
+       <span class="code-keyword">xmlns:xsi</span>=<span class="code-quote">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd"&gt;
+            
+
+<span class="code-tag">&lt;bean id=<span class="code-quote">"editService"</span> class=<span class="code-quote">"org.apache.struts.edit.service.EditServiceInMemory"</span> /&gt;</span>
+
+<span class="code-tag">&lt;bean id=<span class="code-quote">"editAction"</span> class=<span class="code-quote">"org.apache.struts.edit.action.EditAction"</span> &gt;</span>
+
+	<span class="code-tag">&lt;property name=<span class="code-quote">"editService"</span> ref=<span class="code-quote">"editService"</span> /&gt;</span>
+	
+<span class="code-tag">&lt;/bean&gt;</span>
+
+<span class="code-tag">&lt;/beans&gt;</span>
+
+</pre>
+</div></div>
+
+<p>Note in the above that there is an editAction bean and its editService property is set to the editService bean.  Since we are having Spring manage the EditAction class we must specify any properties of EditAction that we want Spring to inject.</p>
+
+<p>In the struts.xml configuration file you must specify the Spring id value for the class attribute of the action node.  This tells Struts to get a bean with that id value from Spring for the Action class.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeHeader panelHeader" style="border-bottom-width: 1px;"><b>Struts Configuration For Spring Managed ActionSupport Class</b></div><div class="codeContent panelContent">
+<pre class="code-xml">
+<span class="code-tag">&lt;action name=<span class="code-quote">"edit"</span> class=<span class="code-quote">"editAction"</span> method=<span class="code-quote">"input"</span>&gt;</span>
+	<span class="code-tag">&lt;result name=<span class="code-quote">"input"</span>&gt;</span>/edit.jsp<span class="code-tag">&lt;/result&gt;</span>
+<span class="code-tag">&lt;/action&gt;</span>
+
+</pre>
+</div></div>
+
+<h3><a name="SpringandStruts2-Summary"></a>Summary</h3>
+
+<p>In this tutorial we reviewed how to use the Struts 2 Spring plugin to integrate Spring and Struts.  By using the Struts 2 Spring plugin you can have Spring manage the dependencies of your ActionSupport classes.  Of course you can also take advantage of the many other benefits (AOP, Spring JDBC) that the Spring framework provides.</p>
+
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody>
+<tr>
+<th class="confluenceTh"> Next </th>
+<td class="confluenceTd"> Onward to <a href="http://struts.apache.org/2.2.1.1/docs/struts-2-annotations.html" title="Struts 2 Annotations">Struts 2 Annotations</a> </td>
+</tr>
+<tr>
+<th class="confluenceTh">Previous </th>
+<td class="confluenceTd"> Return to <a href="http://struts.apache.org/2.2.1.1/docs/struts-2-themes.html" title="Struts 2 Themes">Struts 2 Themes</a> </td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+
+
+
+        </div>
+
+        
+      </div>
+    </div>
+    <div class="footer">
+      Generated by
+      <a href="http://www.atlassian.com/confluence/">Atlassian Confluence</a> (Version: 3.2 Build: 1810 Mar 16, 2010)
+      <a href="http://could.it/autoexport/">Auto Export Plugin</a> (Version: 1.0.0-dkulp)
+    </div>
+  
+</body></html>

@@ -40,4 +40,16 @@ http://struts.apache.org/2.2.1.1/docs/struts-2-form-tags.html
 
 11)Form Validation Using XML
 TODO
-http://struts.apache.org/2.2.1.1/docs/form-validation-using-xml.html
+http://struts.apache.org/2.2.1.1/docs/form-validation-using-xml.html3
+
+12)Wildcard Method Selection
+http://struts.apache.org/2.2.1.1/docs/wildcard-method-selection.html
+
+13)Struts 2 Themes
+http://struts.apache.org/2.2.1.1/docs/struts-2-themes.html
+
+14)Spring and Struts 2
+http://struts.apache.org/2.2.1.1/docs/spring-and-struts-2.html
+
+15)Struts 2 Annotations
+http://struts.apache.org/2.2.1.1/docs/struts-2-annotations.html
