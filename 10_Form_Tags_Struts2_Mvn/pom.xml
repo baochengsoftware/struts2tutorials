@@ -8,7 +8,7 @@
 	</parent>
 
 	<groupId>manning</groupId>
-	<artifactId>Form_Tags_Struts2_Mvn</artifactId>
+	<artifactId>10_Form_Tags_Struts2_Mvn</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Form_Tags_Struts2_Mvn</name>

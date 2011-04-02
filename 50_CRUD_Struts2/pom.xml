@@ -8,7 +8,7 @@
 	</parent>
 
 	<groupId>com.aurifa.struts2.tutorial</groupId>
-	<artifactId>CRUD_Struts2</artifactId>
+	<artifactId>50_CRUD_Struts2</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CRUD_Struts2</name>

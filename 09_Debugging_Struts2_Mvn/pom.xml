@@ -8,7 +8,7 @@
 	</parent>
 
 	<groupId>org.apache.struts</groupId>
-	<artifactId>Debugging_Struts2_Mvn</artifactId>
+	<artifactId>09_Debugging_Struts2_Mvn</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Debugging_Struts2_Mvn</name>

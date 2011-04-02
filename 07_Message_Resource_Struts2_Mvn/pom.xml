@@ -7,7 +7,7 @@
 	</parent>
 
   <groupId>org.apache.struts</groupId>
-  <artifactId>Message_Resource_Struts2_Mvn</artifactId>
+  <artifactId>07_Message_Resource_Struts2_Mvn</artifactId>
   <packaging>war</packaging>
   <name>Message Resource Struts 2</name>
   <version>0.0.1-SNAPSHOT</version>

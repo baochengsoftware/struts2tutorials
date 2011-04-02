@@ -7,7 +7,7 @@
 	</parent>
 
   <groupId>org.apache.struts</groupId>
-  <artifactId>Form_Validation_Struts2_Mvn</artifactId>
+  <artifactId>06_Form_Validation_Struts2_Mvn</artifactId>
   <packaging>war</packaging>
   <name>Form Validation Struts 2</name>
   <version>0.0.1-SNAPSHOT</version>
