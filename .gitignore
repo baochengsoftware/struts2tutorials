@@ -8,3 +8,5 @@ Thumbs.db
 build
 bin
 *.zip
+*.war
+*.rar

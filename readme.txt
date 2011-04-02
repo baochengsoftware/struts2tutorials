@@ -36,5 +36,8 @@ http://struts.apache.org/2.2.1.1/docs/exception-handling.html
 http://struts.apache.org/2.2.1.1/docs/debugging-struts.html
 
 10)Struts 2 Form Tags
-TODO
 http://struts.apache.org/2.2.1.1/docs/struts-2-form-tags.html
+
+11)Form Validation Using XML
+TODO
+http://struts.apache.org/2.2.1.1/docs/form-validation-using-xml.html
